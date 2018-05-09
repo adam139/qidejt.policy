@@ -1,0 +1,11 @@
+<layers>
+    
+    <!-- Disable the layer when uninstalled -->
+    
+    <layer
+        name="qidejt.policy"
+        interface="qidejt.policy.browser.interfaces.IThemeSpecific"
+        remove="True"
+        />
+
+</layers>

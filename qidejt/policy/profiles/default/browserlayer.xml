@@ -1,0 +1,10 @@
+<layers>
+    
+    <!-- Enable the Diazo960 Theme layer when installed -->
+    
+    <layer
+        name="qidejt.policy"
+        interface="qidejt.policy.browser.interfaces.IThemeSpecific"
+        />
+
+</layers>
