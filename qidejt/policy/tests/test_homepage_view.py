@@ -82,7 +82,7 @@ class TestView(unittest.TestCase):
 
         import transaction
         transaction.commit()
-        target = self.portal['zhengcefagui']
+        target = self.portal['qidedongtai']
         page = target.absolute_url() + '/@@tableview'    
         browser.open(page)
  

@@ -53,46 +53,42 @@ defaultpath = {
                 }
 import copy
 
-defaultpath.update({'v':'/guanyuqixie'})
-guanyuqixie = [default,defaultpath]
+defaultpath.update({'v':'/qidedongtai/qidexinwen'})
+qidexinwen = [default,defaultpath]
 
-xiehuidongtaipath = copy.copy(defaultpath)
-xiehuidongtaipath.update({'v':'/xiehuidongtai'})
-xiehuidongtai = [default,xiehuidongtaipath]
-
-hangyezixunpath = copy.copy(defaultpath)
-hangyezixunpath.update({'v':'/hangyezixun'})
-hangyezixun = [default,hangyezixunpath]
-
-zhengcefaguipath = copy.copy(defaultpath)
-zhengcefaguipath.update({'v':'/zhengcefagui'})
-zhengcefagui = [default,zhengcefaguipath] 
-
-meitibaodaopath = copy.copy(defaultpath)
-meitibaodaopath.update({'v':'/meitibaodao'})
-meitibaodao = [default,meitibaodaopath]
-
-huiyuandanweipath = copy.copy(defaultpath)
-huiyuandanweipath.update({'v':'/huiyuandanwei'})
-huiyuandanwei = [default,huiyuandanweipath]
-
-
+zuixingonggaopath = copy.copy(defaultpath)
+zuixingonggaopath.update({'v':'/qidedongtai/qidegonggao'})
+zuixingonggao = [default,zuixingonggaopath]
 
 STRUCTURE = [
     {
         'type': 'Folder',
-        'title': u'关于企协',
-        'id': 'guanyuqixie',
-        'description': u'关于企协',
+        'title': u'关于齐德',
+        'id': 'guanyuqide',
+        'description': u'关于齐德',
         'layout': 'tableview'
     },
     {
         'type': 'Folder',
-        'title': u'协会动态',
+        'title': u'齐德动态',
         'id': 'xiehuidongtai',
-        'description': u'协会动态',
+        'description': u'齐德动态',
         'layout': 'tableview',
         'children': [
+                     {
+        'type': 'Folder',
+        'title': u'齐德新闻',
+        'id': 'qidexinwen',
+        'description': u'齐德新闻',
+        'layout': 'tableview'                      
+                      },
+                     {
+        'type': 'Folder',
+        'title': u'齐德公告',
+        'id': 'qidegonggao',
+        'description': u'齐德公告',
+        'layout': 'tableview'                      
+                      },                     
                      {
             'type': 'my315ok.products.productfolder',
             'title': u'图片新闻',
@@ -126,32 +122,32 @@ STRUCTURE = [
     },             
     {
         'type': 'Folder',
-        'title': u'行业资讯',
-        'id': 'hangyezixun',
-        'description': u'行业资讯',
+        'title': u'旗下产业',
+        'id': 'qixiachanye',
+        'description': u'旗下产业',
         'layout': 'tableview'
     },             
     {
         'type': 'Folder',
-        'title': u'政策法规',
-        'id': 'zhengcefagui',
-        'description': u'政策法规',
+        'title': u'合作伙伴',
+        'id': 'hezuohuoban',
+        'description': u'合作伙伴',
         'layout': 'tableview'
    
     },              
     {
         'type': 'Folder',
-        'title': u'会员单位',
-        'id': 'huiyuandanwei',
-        'description': u'会员单位',
+        'title': u'联系齐德',
+        'id': 'lianxiqide',
+        'description': u'联系齐德',
         'layout': 'tableview'
  
     },              
     {
         'type': 'Folder',
-        'title': u'媒体报道',
-        'id': 'meitibaodao',
-        'description': u'媒体报道',
+        'title': u'人才招聘',
+        'id': 'rencaizhaopin',
+        'description': u'人才招聘',
         'layout': 'tableview'        
     },             
     {
@@ -162,50 +158,22 @@ STRUCTURE = [
         'children': [
                      {
                      'type':'Collection',
-                     'title':u'协会动态',
-                     'description': u'协会动态查询集',
-                     'id':'xiehuidongtai',
+                     'title':u'齐德新闻',
+                     'description': u'齐德新闻查询集',
+                     'id':'qidexinwen',
                      'sort_on':'created',
                      'sort_reversed':True,
-                     'query':xiehuidongtai,
+                     'query':qidexinwen,
                      },
                      {                     
                      'type':'Collection',
-                     'title':u'行业资讯',
-                     'description': u'行业资讯查询集',
-                     'id':'hangyezixun',
+                     'title':u'最新公告',
+                     'description': u'最新公告查询集',
+                     'id':'zuixingonggao',
                      'sort_on':'created',
                      'sort_reversed':True,                     
-                     'query':hangyezixun,
-                     },
-                     {                     
-                     'type':'Collection',
-                     'title':u'会员单位',
-                     'description': u'会员单位查询集',
-                     'id':'huiyuandanwei',
-                     'sort_on':'created',
-                     'sort_reversed':True,                     
-                     'query':huiyuandanwei,
-                     },
-                    {
-                     'type':'Collection',
-                     'title':u'政策法规',
-                     'description': u'最新政策法规',
-                     'id':'zhengcefagui',
-                     'sort_on':'created',
-                     'sort_reversed':True,                     
-                     'query':zhengcefagui,
-                     },                     
-                    {
-                     'type':'Collection',
-                     'title':u'媒体报道',
-                     'description': u'媒体报道',
-                     'id':'meitibaodao',
-                     'sort_on':'created',
-                     'sort_reversed':True,                     
-                     'query':meitibaodao,
-                     }
-                                                                                                                               
+                     'query':zuixingonggao,
+                     }                                                                                                        
                      ]
     },                           
     {
@@ -299,8 +267,8 @@ def _create_content(item, container):
                 groupname=local_role['group'],
                 roles=local_role['roles'],
                 obj=new)
-    if item.get('publish', False):
-        api.content.transition(new, to_state=item.get('state', 'published'))
+#     if item.get('publish', False):
+#         api.content.transition(new, to_state=item.get('state', 'published'))
     new.reindexObject()
     # call recursively for children
     for subitem in item.get('children', []):

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <site>
- <property name="title">湘潭市企业信用促进会官网</property>
- <property name="description">湘潭市企业信用促进会网。</property>
+ <property name="title">湖南齐德企业管理有限公司</property>
+ <property name="description">湖南齐德企业管理有限公司官方网站</property>
  <property name="email_from_address" type="string">tonglian777@126.com</property>
  <property name="email_from_name" type="string">tonglian777</property>
  <property name="validate_email" type="boolean">True</property>
