@@ -71,7 +71,7 @@ STRUCTURE = [
     {
         'type': 'Folder',
         'title': u'齐德动态',
-        'id': 'xiehuidongtai',
+        'id': 'qidedongtai',
         'description': u'齐德动态',
         'layout': 'tableview',
         'children': [
@@ -80,14 +80,30 @@ STRUCTURE = [
         'title': u'齐德新闻',
         'id': 'qidexinwen',
         'description': u'齐德新闻',
-        'layout': 'tableview'                      
+        'layout': 'tableview',
+        'children': [
+                     {
+         'type': 'Document',
+        'title': u'齐德新闻',
+        'id': 'qidexinwen2',
+        'description': u'齐德新闻'
+        }                    
+                     ]                              
                       },
                      {
         'type': 'Folder',
         'title': u'齐德公告',
         'id': 'qidegonggao',
         'description': u'齐德公告',
-        'layout': 'tableview'                      
+        'layout': 'tableview',
+        'children': [
+                     {
+         'type': 'Document',
+        'title': u'齐德公告',
+        'id': 'qidegonggao2',
+        'description': u'齐德公告'
+        }                    
+                     ]                               
                       },                     
                      {
             'type': 'my315ok.products.productfolder',
@@ -125,7 +141,65 @@ STRUCTURE = [
         'title': u'旗下产业',
         'id': 'qixiachanye',
         'description': u'旗下产业',
-        'layout': 'tableview'
+        'layout': 'tableview',
+            'children': [
+                     {                                                                                     
+            'type': 'Folder',
+            'title': u'水电工程',
+            'id': 'shuidiangongcheng', 
+            'description': u'湘潭市水电工程有限公司',
+            'children': [
+                     {
+         'type': 'Document',
+        'title': u'公司简介',
+        'id': 'gongsijianjie',
+        'description': u'公司简介'
+        }                         
+                         ]
+                        } ,
+                         {
+            'type': 'Folder',
+            'title': u'永固建材',
+            'id': 'yonggujiancai',            
+            'description': u'湘潭永固建材有限公司',
+            'children': [
+                     {
+         'type': 'Document',
+        'title': u'公司简介',
+        'id': 'gongsijianjie',
+        'description': u'公司简介'
+        }                         
+                         ]            
+                        } ,
+                         {
+            'type': 'Folder',
+            'title': u'民生置业',
+            'id': 'minshengzhiye',          
+            'description': u'湘潭市民生置业有限公司',
+            'children': [
+                     {
+         'type': 'Document',
+        'title': u'公司简介',
+        'id': 'gongsijianjie',
+        'description': u'公司简介'
+        }                         
+                         ]            
+                        },
+                         {
+            'type': 'Folder',
+            'title': u'德佑置业',
+            'id': 'deyouzhiye',          
+            'description': u'湘潭市德佑置业有限公司',
+            'children': [
+                     {
+         'type': 'Document',
+        'title': u'公司简介',
+        'id': 'gongsijianjie',
+        'description': u'公司简介'
+        }                         
+                         ]            
+                        }                                                                                                    
+                         ]         
     },             
     {
         'type': 'Folder',
@@ -267,8 +341,8 @@ def _create_content(item, container):
                 groupname=local_role['group'],
                 roles=local_role['roles'],
                 obj=new)
-#     if item.get('publish', False):
-#         api.content.transition(new, to_state=item.get('state', 'published'))
+    if item.get('publish', False):
+        api.content.transition(new, to_state=item.get('state', 'published'))
     new.reindexObject()
     # call recursively for children
     for subitem in item.get('children', []):

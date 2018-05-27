@@ -8,13 +8,6 @@
 .nav-tabs li:first-child{padding-left:21px}
 .nav-tabs li:last-child{padding-right:21px}
 
-
-td{text-align:center;background-color:#fff}
-.table .nopadding{padding:0}
-.theader td{background-color:#ededed;height:25px;font-weight:700}
-
-.title a{text-decoration:none}
-.navbar{margin-bottom:10px}
 .navbar-right{margin-right:6px}
 .navbar-nav>li>a{font-weight:700}
 
@@ -46,8 +39,4 @@ padding:0;
 }
 
 .template-index-html #portal-breadcrumbs {display:none}
-.template-index-html .navbar-brand{padding:6px 15px}
-.template-index-html .plone-navbar-nav {margin-top:0}
-
-
-
+.box .col-lg-12 {padding-left:0;padding-right:0}

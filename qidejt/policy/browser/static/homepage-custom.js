@@ -14,6 +14,6 @@ $(document).ready(function(){
 		  window.location.href = url;
 		  return false;
 		});
-
+    $('.carousel').carousel();
 	});
 });
