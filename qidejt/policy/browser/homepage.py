@@ -88,8 +88,10 @@ class FrontpageView(baseview):
         braindata = self.catalog()({'object_provides':Iproduct.__identifier__, 
                                     'b_start':0,
                                     'b_size':3,
+                                    'path':'/qidejt/qidedongtai/tupianxinwen',
                              'sort_order': 'reverse',
                              'sort_on': 'created'})
+
         brainnum = len(braindata)
         if brainnum == 0:return out        
 
