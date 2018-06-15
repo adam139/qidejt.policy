@@ -36,18 +36,30 @@ prefix="plone" />
       </value>
       <value key="deps">jquery</value>
  </records> 
-  
+ <records prefix="plone.resources/homepage"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++resource++qidejt.policy/homepage-custom.js</value>
+      <value key="css">
+        <element>++resource++qidejt.policy/homepage-custom.less</element>
+      </value>
+ </records>  
     <!-- Bundles -->
   <records prefix="plone.bundles/homepage-legacy"
             interface='Products.CMFPlone.interfaces.IBundleRegistry'>    
     <value key="depends">plone</value>
-    <value key="jscompilation">++resource++qidejt.policy/homepage-custom.js</value>
-    <value key="csscompilation">++resource++qidejt.policy/homepage.minv2.css</value>
+    <value key="merge_with">default</value>
+    <value key="resources">
+      <element>homepage</element>
+    </value>    
+    <value key="jscompilation">++resource++qidejt.policy/homepage-custom-compiled.min.js</value>
+    <value key="csscompilation">++resource++qidejt.policy/homepage-compiled.min.css</value>
     <value key="last_compilation">2015-08-14 00:00:00</value>
     <value key="compile">True</value>
-    <value key="enabled">False</value>
+    <value key="enabled">True</value>
     <value key="stub_js_modules">
-        <element>roll</element>
+        <element>jquery</element>
+        <element>bootstrap-carousel</element>
+        <element>bootstrap-tabs</element>
     </value>
   </records>         
   <records prefix="plone.bundles/legacy-custom"
@@ -56,7 +68,7 @@ prefix="plone" />
     <value key="jscompilation">++resource++qidejt.policy/legacy-custom.js</value>   
     <value key="last_compilation">2017-07-31 08:00:00</value>
     <value key="compile">False</value>
-    <value key="enabled">True</value>
+    <value key="enabled">False</value>
   </records>  
   <!-- custom TinyMCE templates -->	
 <!-- activate the plugin -->

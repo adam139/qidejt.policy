@@ -28,7 +28,7 @@ class FrontpageView(baseview):
         # Each view instance receives context and request as construction parameters
         self.context = context
         self.request = request
-        add_bundle_on_request(self.request, 'homepage-legacy')
+#         add_bundle_on_request(self.request, 'homepage-legacy')
         
     
     def carouselid(self):

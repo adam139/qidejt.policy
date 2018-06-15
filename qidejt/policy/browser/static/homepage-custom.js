@@ -15,5 +15,14 @@ $(document).ready(function(){
 		  return false;
 		});
     $('.carousel').carousel();
+	var existnav = $('.portletNavigationTree');
+	if (existnav !== undefined) {            
+		var leftHeight = $('.portletNavigationTree dd').height();
+		var rightHeight = $('#content').parent().height();
+		if((leftHeight) && leftHeight > rightHeight) {
+			leftHeight = rightHeight;
+			$('.portletNavigationTree dd').height(leftHeight).css("overflow","auto");
+		}
+	}        
 	});
 });
