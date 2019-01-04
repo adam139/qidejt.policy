@@ -1,8 +1,10 @@
 #-*- coding: UTF-8 -*-
+import cgi
 from five import grok
 from plone.memoize.instance import memoize
 from zope.component import getMultiAdapter
 from Products.CMFCore.interfaces import ISiteRoot
+from Products.CMFPlone.utils import safe_unicode, getSiteEncoding
 from Products.CMFPlone.resources import add_bundle_on_request
 from Products.CMFPlone.resources import add_resource_on_request
 
@@ -29,7 +31,27 @@ class FrontpageView(baseview):
         self.context = context
         self.request = request
 #         add_bundle_on_request(self.request, 'homepage-legacy')
+
+    def escape(self,value):
+        """Extended escape"""
+        value = cgi.escape(value, True)
+        return value.replace("'", "&apos;")
         
+    @memoize
+    def seo(self):
+        "seo keywords output"
+        keywords =u"湖南齐德,齐德,齐德集团,齐德企业管理"
+        keywords = safe_unicode(keywords)
+        output = u"""<meta name="keywords" content="%s"/>""" %(self.escape(keywords))
+        return output
+
+    @memoize
+    def comments(self):
+        "seo comments output"
+        comments = u"湖南齐德企业管理有限公司简称:湖南齐德,齐德集团.公司位于湘潭(国家级)经济开发区，下辖湘潭名生置业有限公司、湘潭市德佑置业有限公司两家房地产开发公司、湘潭水电工程有限公司、湘潭永固建材有限公司四家公司，现正在与恒大集团合作开发“湘潭•书香门第”小区项目。公司资产大，负债少，队伍小，绩效优，是一家成长性非常好、很有希望上市的公司。"      
+        comments = safe_unicode(comments)
+        output = u"""<!--%s-->""" %(self.escape(comments))
+        return output            
     
     def carouselid(self):
         return "carouselid"
