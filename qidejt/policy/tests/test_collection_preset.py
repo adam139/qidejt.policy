@@ -1,19 +1,22 @@
 #-*- coding: UTF-8 -*-
-import json
-import hmac
 from hashlib import sha1 as sha
-from plone.keyring.interfaces import IKeyManager
-from Products.CMFCore.utils import getToolByName
-from qidejt.policy.setuphandlers import STRUCTURE,_create_content 
-from qidejt.policy.testing import FunctionalTesting
-from plone.app.testing import TEST_USER_ID, login, TEST_USER_NAME, \
-    TEST_USER_PASSWORD, setRoles
-from plone.testing.z2 import Browser
-import unittest
-
+from plone.app.testing import login
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
 from plone.app.textfield.value import RichTextValue
-
+from plone.keyring.interfaces import IKeyManager
+from plone.testing.z2 import Browser
+from Products.CMFCore.utils import getToolByName
+from qidejt.policy.setuphandlers import _create_content
+from qidejt.policy.setuphandlers import STRUCTURE
+from qidejt.policy.testing import FunctionalTesting
 from zope.component import getUtility
+
+import hmac
+import json
+import unittest
 
 
 def getFile(filename):
@@ -34,8 +37,6 @@ class TestView(unittest.TestCase):
 # check collection sort_on,sort_reversed etc.        
 
         portal = self.layer['portal']
-        item = portal['sqls']['xiehuidongtai']  
+        item = portal['sqls']['qidexinwen']  
         self.assertTrue(item.sort_on == "created")
         self.assertTrue(item.sort_reversed == True)      
-
-  

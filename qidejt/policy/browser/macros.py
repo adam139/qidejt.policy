@@ -1,19 +1,17 @@
 # Five imports
-from Products.Five.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.memoize.instance import memoize
-
-from zope.component import getMultiAdapter
 from Acquisition import aq_inner
-from Products.CMFPlone.browser.interfaces import INavigationTree
+from DateTime import DateTime
 from five import grok
-from zope.component import getMultiAdapter
-from Products.CMFCore.utils import getToolByName
-
-from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from plone.app.layout.navigation.navtree import buildFolderTree
-from DateTime import DateTime
+from plone.memoize.instance import memoize
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.browser.interfaces import INavigationTree
+from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
+from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.component import getMultiAdapter
+
 
 class NavTree(object):
     grok.implements(INavigationTree)

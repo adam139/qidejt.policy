@@ -1,8 +1,8 @@
-from zope.interface import Interface
-from zope import schema
-
 from plone.theme.interfaces import IDefaultPloneLayer
-from qidejt.policy import  _
+from qidejt.policy import _
+from zope import schema
+from zope.interface import Interface
+
 
 class IThemeSpecific(Interface):
     """Marker interface that defines a ZTK browser layer. We can reference

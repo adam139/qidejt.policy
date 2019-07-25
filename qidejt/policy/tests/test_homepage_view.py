@@ -1,20 +1,27 @@
 #-*- coding: UTF-8 -*-
-import json
-import hmac
 from hashlib import sha1 as sha
-from plone.keyring.interfaces import IKeyManager
-from Products.CMFCore.utils import getToolByName
-from qidejt.policy.setuphandlers import STRUCTURE,_create_content,import_article 
-from qidejt.policy.testing import FunctionalTesting
-from plone.app.testing import TEST_USER_ID, login, TEST_USER_NAME, \
-    TEST_USER_PASSWORD, setRoles
-from plone.testing.z2 import Browser
-import unittest
-from plone.namedfile.file import NamedBlobImage,NamedBlobFile,NamedImage
-import os
+from plone.app.testing import login
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
 from plone.app.textfield.value import RichTextValue
-
+from plone.keyring.interfaces import IKeyManager
+from plone.namedfile.file import NamedBlobFile
+from plone.namedfile.file import NamedBlobImage
+from plone.namedfile.file import NamedImage
+from plone.testing.z2 import Browser
+from Products.CMFCore.utils import getToolByName
+from qidejt.policy.setuphandlers import _create_content
+from qidejt.policy.setuphandlers import import_article
+from qidejt.policy.setuphandlers import STRUCTURE
+from qidejt.policy.testing import FunctionalTesting
 from zope.component import getUtility
+
+import hmac
+import json
+import os
+import unittest
 
 
 def getFile(filename):
@@ -30,9 +37,8 @@ class TestView(unittest.TestCase):
         setRoles(portal, TEST_USER_ID, ('Manager',))
         for item in STRUCTURE:
             _create_content(item, portal)         
+        
         import_article(portal)
-# import articles        
-
         self.portal = portal
     
     def test_front(self):
@@ -64,7 +70,7 @@ class TestView(unittest.TestCase):
                         'size':10                                                                   
                         }
 # Look up and invoke the view via traversal
-        target = self.portal['xiehuidongtai']
+        target = self.portal['qidedongtai']
         view = target.restrictedTraverse('@@favoritemore')
         result = view()
         outstr = u'class="col-md-9 title"'
@@ -88,5 +94,3 @@ class TestView(unittest.TestCase):
  
         outstr = 'id="tablecontent"'
         self.assertTrue(outstr in browser.contents)      
-
-  

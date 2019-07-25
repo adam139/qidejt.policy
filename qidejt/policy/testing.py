@@ -1,23 +1,21 @@
 #-*- coding: UTF-8 -*-
-import datetime
-from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import applyProfile
-from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import IntegrationTesting,FunctionalTesting
-
-from plone.app.testing import (
-IntegrationTesting,
-FunctionalTesting,
-login, logout, setRoles,
-PLONE_FIXTURE,
-TEST_USER_NAME,
-SITE_OWNER_NAME,
-)
-
-from plone.testing import z2
-from plone.namedfile.file import NamedImage
 from plone import namedfile
+from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import login
+from plone.app.testing import logout
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import setRoles
+from plone.app.testing import SITE_OWNER_NAME
+from plone.app.testing import TEST_USER_NAME
+from plone.namedfile.file import NamedImage
+from plone.testing import z2
 from zope.configuration import xmlconfig
+
+import datetime
+
 
 def getFile(filename):
     """ return contents of the file with the given name """
@@ -37,9 +35,7 @@ class SitePolicy(PloneSandboxLayer):
         import plone.namedfile
 
         xmlconfig.file('configure.zcml', plone.app.contenttypes, context=configurationContext)
-#         xmlconfig.file('configure.zcml', collective.diazotheme.bootstrap, context=configurationContext)
         xmlconfig.file('configure.zcml', my315ok.products, context=configurationContext)
-#         xmlconfig.file('configure.zcml', my315ok.orgnization, context=configurationContext)
         xmlconfig.file('configure.zcml', qidejt.theme, context=configurationContext)
         xmlconfig.file('configure.zcml', qidejt.policy, context=configurationContext)
         xmlconfig.file('configure.zcml', plone.namedfile, context=configurationContext)        
@@ -59,8 +55,6 @@ class SitePolicy(PloneSandboxLayer):
         applyProfile(portal, 'plone.app.contenttypes:default')
         applyProfile(portal, 'my315ok.products:default') 
         applyProfile(portal, 'qidejt.policy:default')       
-#         applyProfile(portal, 'dexterity.membrane:default')
-#        applyProfile(portal, 'dexterity.membrane.content:example')
 
 class IntegrationSitePolicy(SitePolicy):      
         
@@ -68,9 +62,6 @@ class IntegrationSitePolicy(SitePolicy):
         applyProfile(portal, 'my315ok.products:default') 
         applyProfile(portal, 'qidejt.policy:default')
         applyProfile(portal, 'plone.app.contenttypes:default')
-#         applyProfile(portal, 'my315ok.socialorgnization:default')
-#         applyProfile(portal, 'dexterity.membrane:default')
-#        applyProfile(portal, 'dexterity.membrane.content:example')
 
 #         portal = self.layer['portal']
         #make global request work

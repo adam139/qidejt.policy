@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
-from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from logging import getLogger
 from plone import api
 from plone.app.dexterity.behaviors import constrains
 from plone.app.textfield.value import RichTextValue
-from zope.dottedname.resolve import resolve
-from Products.Five.utilities.marker import mark
-from Products.CMFPlone.interfaces import INonInstallable
-from zope.interface import implementer
 from plone.namedfile.file import NamedImage
+from Products.CMFPlone.interfaces import INonInstallable
+from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from Products.Five.utilities.marker import mark
+from zope.dottedname.resolve import resolve
+from zope.interface import implementer
 
-from logging import getLogger
+import copy
+
+
 logger = getLogger(__name__)
 
 @implementer(INonInstallable)
@@ -51,7 +54,6 @@ defaultpath = {
                     'o': 'plone.app.querystring.operation.string.path',
                     'v': '/',
                 }
-import copy
 
 defaultpath.update({'v':'/qidedongtai/qidexinwen'})
 qidexinwen = [default,defaultpath]

@@ -1,20 +1,23 @@
 #-*- coding: UTF-8 -*-
-import cgi
+from collective.diazotheme.bootstrap.browser.homepage import HomepageView as baseview
 from five import grok
+from my315ok.products.product import Iproduct
 from plone.memoize.instance import memoize
-from zope.component import getMultiAdapter
 from Products.CMFCore.interfaces import ISiteRoot
-from Products.CMFPlone.utils import safe_unicode, getSiteEncoding
 from Products.CMFPlone.resources import add_bundle_on_request
 from Products.CMFPlone.resources import add_resource_on_request
+from Products.CMFPlone.utils import getSiteEncoding
+from Products.CMFPlone.utils import safe_unicode
+from xtcs.policy import _
+from xtcs.policy.browser.interfaces import IThemeSpecific
+from zope.component import getMultiAdapter
+
+import cgi
+
 
 # add_resource_on_request(self.request, 'jquery.recurrenceinput')
 # add_bundle_on_request(self.request, 'thememapper')
 
-from xtcs.policy import _
-from my315ok.products.product import Iproduct
-from collective.diazotheme.bootstrap.browser.homepage import HomepageView as baseview
-from xtcs.policy.browser.interfaces import IThemeSpecific
 
 # grok.templatedir('templates')
 
@@ -219,4 +222,3 @@ class FrontpageView(baseview):
         # call getMemberList function output table
         # fetch 20 items roll
         return fview.getMemberList(start=0,size=20,)
-            
