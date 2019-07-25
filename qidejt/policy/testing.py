@@ -1,4 +1,4 @@
-#-*- coding: UTF-8 -*-
+# -*- coding: UTF-8 -*-
 from plone import namedfile
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
@@ -23,9 +23,10 @@ def getFile(filename):
     filename = os.path.join(os.path.dirname(__file__) + "/tests/", filename)
     return open(filename, 'r')
 
+
 class SitePolicy(PloneSandboxLayer):
     defaultBases = (PLONE_FIXTURE,)
-    
+
     def setUpZope(self, app, configurationContext):
         # Load ZCML
         import qidejt.policy
@@ -34,13 +35,27 @@ class SitePolicy(PloneSandboxLayer):
         import my315ok.products
         import plone.namedfile
 
-        xmlconfig.file('configure.zcml', plone.app.contenttypes, context=configurationContext)
-        xmlconfig.file('configure.zcml', my315ok.products, context=configurationContext)
-        xmlconfig.file('configure.zcml', qidejt.theme, context=configurationContext)
-        xmlconfig.file('configure.zcml', qidejt.policy, context=configurationContext)
-        xmlconfig.file('configure.zcml', plone.namedfile, context=configurationContext)        
-       
-    
+        xmlconfig.file(
+            'configure.zcml',
+            plone.app.contenttypes,
+            context=configurationContext)
+        xmlconfig.file(
+            'configure.zcml',
+            my315ok.products,
+            context=configurationContext)
+        xmlconfig.file(
+            'configure.zcml',
+            qidejt.theme,
+            context=configurationContext)
+        xmlconfig.file(
+            'configure.zcml',
+            qidejt.policy,
+            context=configurationContext)
+        xmlconfig.file(
+            'configure.zcml',
+            plone.namedfile,
+            context=configurationContext)
+
     def tearDownZope(self, app):
         pass
         # Uninstall products installed above
@@ -48,33 +63,37 @@ class SitePolicy(PloneSandboxLayer):
 #         z2.uninstallProduct(app, 'Products.TemplateFields')
 #         z2.uninstallProduct(app, 'Products.TALESField')
 #         z2.uninstallProduct(app, 'Products.PythonField')
-#         z2.uninstallProduct(app, 'Products.membrane')        
-        
+#         z2.uninstallProduct(app, 'Products.membrane')
+
     def setUpPloneSite(self, portal):
 
         applyProfile(portal, 'plone.app.contenttypes:default')
-        applyProfile(portal, 'my315ok.products:default') 
-        applyProfile(portal, 'qidejt.policy:default')       
+        applyProfile(portal, 'my315ok.products:default')
+        applyProfile(portal, 'qidejt.policy:default')
 
-class IntegrationSitePolicy(SitePolicy):      
-        
+
+class IntegrationSitePolicy(SitePolicy):
+
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'my315ok.products:default') 
+        applyProfile(portal, 'my315ok.products:default')
         applyProfile(portal, 'qidejt.policy:default')
         applyProfile(portal, 'plone.app.contenttypes:default')
 
 #         portal = self.layer['portal']
-        #make global request work
+        # make global request work
         from zope.globalrequest import setRequest
         setRequest(portal.REQUEST)
         # login doesn't work so we need to call z2.login directly
         z2.login(portal.__parent__.acl_users, SITE_OWNER_NAME)
 #        setRoles(portal, TEST_USER_ID, ('Manager',))
 #        login(portal, TEST_USER_NAME)
-              
-        self.portal = portal 
+
+        self.portal = portal
+
 
 POLICY_FIXTURE = SitePolicy()
 POLICY_INTEGRATION_FIXTURE = IntegrationSitePolicy()
-POLICY_INTEGRATION_TESTING = IntegrationTesting(bases=(POLICY_INTEGRATION_FIXTURE,), name="Site:Integration")
-FunctionalTesting = FunctionalTesting(bases=(POLICY_FIXTURE,), name="Site:FunctionalTesting")
+POLICY_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(POLICY_INTEGRATION_FIXTURE,), name="Site:Integration")
+FunctionalTesting = FunctionalTesting(
+    bases=(POLICY_FIXTURE,), name="Site:FunctionalTesting")

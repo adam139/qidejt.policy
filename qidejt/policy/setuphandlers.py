@@ -15,6 +15,7 @@ import copy
 
 logger = getLogger(__name__)
 
+
 @implementer(INonInstallable)
 class HiddenProfiles(object):
 
@@ -40,27 +41,29 @@ def _load_image(slider):
         data=open(filename, 'r').read(),
         filename=u'slide_{0}.jpg'.format(slider)
     )
+
+
 image1 = _load_image(1)
 image2 = _load_image(2)
 image3 = _load_image(3)
 
 
-default = { 'i': 'portal_type',
+default = {'i': 'portal_type',
            'o': 'plone.app.querystring.operation.string.is',
-            'v': 'Document'}
+           'v': 'Document'}
 query = []
 defaultpath = {
-                    'i': 'path',
-                    'o': 'plone.app.querystring.operation.string.path',
-                    'v': '/',
-                }
+    'i': 'path',
+    'o': 'plone.app.querystring.operation.string.path',
+    'v': '/',
+}
 
-defaultpath.update({'v':'/qidedongtai/qidexinwen'})
-qidexinwen = [default,defaultpath]
+defaultpath.update({'v': '/qidedongtai/qidexinwen'})
+qidexinwen = [default, defaultpath]
 
 zuixingonggaopath = copy.copy(defaultpath)
-zuixingonggaopath.update({'v':'/qidedongtai/qidegonggao'})
-zuixingonggao = [default,zuixingonggaopath]
+zuixingonggaopath.update({'v': '/qidedongtai/qidegonggao'})
+zuixingonggao = [default, zuixingonggaopath]
 
 STRUCTURE = [
     {
@@ -77,181 +80,181 @@ STRUCTURE = [
         'description': u'齐德动态',
         'layout': 'tableview',
         'children': [
-                     {
-        'type': 'Folder',
-        'title': u'齐德新闻',
-        'id': 'qidexinwen',
-        'description': u'齐德新闻',
-        'layout': 'tableview',
-        'children': [
-                     {
-         'type': 'Document',
-        'title': u'齐德新闻',
-        'id': 'qidexinwen2',
-        'description': u'齐德新闻'
-        }                    
-                     ]                              
-                      },
-                     {
-        'type': 'Folder',
-        'title': u'齐德公告',
-        'id': 'qidegonggao',
-        'description': u'齐德公告',
-        'layout': 'tableview',
-        'children': [
-                     {
-         'type': 'Document',
-        'title': u'齐德公告',
-        'id': 'qidegonggao2',
-        'description': u'齐德公告'
-        }                    
-                     ]                               
-                      },                     
-                     {
-            'type': 'my315ok.products.productfolder',
-            'title': u'图片新闻',
-            'id': 'tupianxinwen',
-            'description': u'图片新闻',
-            'children': [
-                     {                                                                                     
-            'type': 'my315ok.products.product',
-            'title': u'图片新闻',
-            'id': 'prdt1',
-            'image':image1,            
-            'description': u'图片新闻'
-                        } ,
-                         {
-            'type': 'my315ok.products.product',
-            'title': u'图片新闻2',
-            'id': 'prdt2',
-            'image':image2,            
-            'description': u'图片新闻2'
-                        } ,
-                         {
-            'type': 'my315ok.products.product',
-            'title': u'图片新闻3',
-            'id': 'prdt3',
-            'image':image3,            
-            'description': u'图片新闻3'
-                        }                                                                           
-                         ]                      
-                      }                                                                         
-                     ]
-    },             
+            {
+                'type': 'Folder',
+                'title': u'齐德新闻',
+                         'id': 'qidexinwen',
+                         'description': u'齐德新闻',
+                         'layout': 'tableview',
+                         'children': [
+                             {
+                                 'type': 'Document',
+                                 'title': u'齐德新闻',
+                                 'id': 'qidexinwen2',
+                                 'description': u'齐德新闻'
+                             }
+                         ]
+            },
+            {
+                'type': 'Folder',
+                'title': u'齐德公告',
+                         'id': 'qidegonggao',
+                         'description': u'齐德公告',
+                         'layout': 'tableview',
+                         'children': [
+                             {
+                                 'type': 'Document',
+                                 'title': u'齐德公告',
+                                 'id': 'qidegonggao2',
+                                 'description': u'齐德公告'
+                             }
+                         ]
+            },
+            {
+                'type': 'my315ok.products.productfolder',
+                'title': u'图片新闻',
+                         'id': 'tupianxinwen',
+                         'description': u'图片新闻',
+                         'children': [
+                             {
+                                 'type': 'my315ok.products.product',
+                                 'title': u'图片新闻',
+                                 'id': 'prdt1',
+                                 'image': image1,
+                                 'description': u'图片新闻'
+                             },
+                             {
+                                 'type': 'my315ok.products.product',
+                                 'title': u'图片新闻2',
+                                 'id': 'prdt2',
+                                 'image': image2,
+                                 'description': u'图片新闻2'
+                             },
+                             {
+                                 'type': 'my315ok.products.product',
+                                 'title': u'图片新闻3',
+                                 'id': 'prdt3',
+                                 'image': image3,
+                                 'description': u'图片新闻3'
+                             }
+                         ]
+            }
+        ]
+    },
     {
         'type': 'Folder',
         'title': u'旗下产业',
         'id': 'qixiachanye',
         'description': u'旗下产业',
         'layout': 'tableview',
-            'children': [
-                     {                                                                                     
-            'type': 'Folder',
-            'title': u'水电工程',
-            'id': 'shuidiangongcheng', 
-            'description': u'湘潭市水电工程有限公司',
-            'children': [
-                     {
-         'type': 'Document',
-        'title': u'公司简介',
-        'id': 'gongsijianjie',
-        'description': u'公司简介'
-        }                         
+        'children': [
+            {
+                'type': 'Folder',
+                'title': u'水电工程',
+                         'id': 'shuidiangongcheng',
+                         'description': u'湘潭市水电工程有限公司',
+                         'children': [
+                             {
+                                 'type': 'Document',
+                                 'title': u'公司简介',
+                                 'id': 'gongsijianjie',
+                                 'description': u'公司简介'
+                             }
                          ]
-                        } ,
-                         {
-            'type': 'Folder',
-            'title': u'永固建材',
-            'id': 'yonggujiancai',            
-            'description': u'湘潭永固建材有限公司',
-            'children': [
-                     {
-         'type': 'Document',
-        'title': u'公司简介',
-        'id': 'gongsijianjie',
-        'description': u'公司简介'
-        }                         
-                         ]            
-                        } ,
-                         {
-            'type': 'Folder',
-            'title': u'民生置业',
-            'id': 'minshengzhiye',          
-            'description': u'湘潭市民生置业有限公司',
-            'children': [
-                     {
-         'type': 'Document',
-        'title': u'公司简介',
-        'id': 'gongsijianjie',
-        'description': u'公司简介'
-        }                         
-                         ]            
-                        },
-                         {
-            'type': 'Folder',
-            'title': u'德佑置业',
-            'id': 'deyouzhiye',          
-            'description': u'湘潭市德佑置业有限公司',
-            'children': [
-                     {
-         'type': 'Document',
-        'title': u'公司简介',
-        'id': 'gongsijianjie',
-        'description': u'公司简介'
-        }                         
-                         ]            
-                        }                                                                                                    
-                         ]         
-    },             
+            },
+            {
+                'type': 'Folder',
+                'title': u'永固建材',
+                         'id': 'yonggujiancai',
+                         'description': u'湘潭永固建材有限公司',
+                         'children': [
+                             {
+                                 'type': 'Document',
+                                 'title': u'公司简介',
+                                 'id': 'gongsijianjie',
+                                 'description': u'公司简介'
+                             }
+                         ]
+            },
+            {
+                'type': 'Folder',
+                'title': u'民生置业',
+                         'id': 'minshengzhiye',
+                         'description': u'湘潭市民生置业有限公司',
+                         'children': [
+                             {
+                                 'type': 'Document',
+                                 'title': u'公司简介',
+                                 'id': 'gongsijianjie',
+                                 'description': u'公司简介'
+                             }
+                         ]
+            },
+            {
+                'type': 'Folder',
+                'title': u'德佑置业',
+                         'id': 'deyouzhiye',
+                         'description': u'湘潭市德佑置业有限公司',
+                         'children': [
+                             {
+                                 'type': 'Document',
+                                 'title': u'公司简介',
+                                 'id': 'gongsijianjie',
+                                 'description': u'公司简介'
+                             }
+                         ]
+            }
+        ]
+    },
     {
         'type': 'Folder',
         'title': u'合作伙伴',
         'id': 'hezuohuoban',
         'description': u'合作伙伴',
         'layout': 'tableview'
-   
-    },              
+
+    },
     {
         'type': 'Folder',
         'title': u'联系齐德',
         'id': 'lianxiqide',
         'description': u'联系齐德',
         'layout': 'tableview'
- 
-    },              
+
+    },
     {
         'type': 'Folder',
         'title': u'人才招聘',
         'id': 'rencaizhaopin',
         'description': u'人才招聘',
-        'layout': 'tableview'        
-    },             
+        'layout': 'tableview'
+    },
     {
         'type': 'Folder',
         'title': u'查询集',
         'id': 'sqls',
         'description': u'查询集',
         'children': [
-                     {
-                     'type':'Collection',
-                     'title':u'齐德新闻',
-                     'description': u'齐德新闻查询集',
-                     'id':'qidexinwen',
-                     'sort_on':'created',
-                     'sort_reversed':True,
-                     'query':qidexinwen,
-                     },
-                     {                     
-                     'type':'Collection',
-                     'title':u'最新公告',
-                     'description': u'最新公告查询集',
-                     'id':'zuixingonggao',
-                     'sort_on':'created',
-                     'sort_reversed':True,                     
-                     'query':zuixingonggao,
-                     }                                                                                                        
-                     ]
-    },                           
+            {
+                'type': 'Collection',
+                'title': u'齐德新闻',
+                         'description': u'齐德新闻查询集',
+                         'id': 'qidexinwen',
+                         'sort_on': 'created',
+                         'sort_reversed': True,
+                         'query': qidexinwen,
+            },
+            {
+                'type': 'Collection',
+                'title': u'最新公告',
+                         'description': u'最新公告查询集',
+                         'id': 'zuixingonggao',
+                         'sort_on': 'created',
+                'sort_reversed': True,
+                         'query': zuixingonggao,
+            }
+        ]
+    },
     {
         'type': 'Folder',
         'title': u'帮助',
@@ -259,7 +262,7 @@ STRUCTURE = [
         'description': u'帮助',
         'layout': 'tableview',
     }
-               
+
 ]
 
 
@@ -283,27 +286,28 @@ def post_install(context):
         api.content.delete(members)
     members = portal.get('Members', None)
     if members is not None:
-       members.exclude_from_nav = True
-       members.reindexObject()
-  
+        members.exclude_from_nav = True
+        members.reindexObject()
 
     for item in STRUCTURE:
         _create_content(item, portal)
-    
+
     import_article(portal)
     members = portal.get('sqls', None)
     if members is not None:
-       members.exclude_from_nav = True
-       members.reindexObject()
+        members.exclude_from_nav = True
+        members.reindexObject()
     members = portal.get('help', None)
     if members is not None:
-       members.exclude_from_nav = True
-       members.reindexObject()       
+        members.exclude_from_nav = True
+        members.reindexObject()
+
 
 def uninstall(context):
     """Uninstall script"""
     # Do something at the end of the uninstallation of this package.
-    
+
+
 def _create_content(item, container):
     new = container.get(item['id'], None)
     if not new:
@@ -312,11 +316,11 @@ def _create_content(item, container):
             type=item['type'],
             container=container,
             title=item['title'],
-            description=item['description'],            
+            description=item['description'],
             id=item['id'],
             safe_id=False)
         logger.info('Created item {}'.format(new.absolute_url()))
-    
+
     if item.get('layout', False):
         new.setLayout(item['layout'])
     if item.get('query', False):
@@ -324,15 +328,15 @@ def _create_content(item, container):
     if item.get('sort_on', False):
         new.sort_on = item['sort_on']
     if item.get('sort_reversed', False):
-        new.sort_reversed = item['sort_reversed']                
+        new.sort_reversed = item['sort_reversed']
     if item.get('image', False):
-        new.image = item['image']               
+        new.image = item['image']
     if item.get('markif', False):
         try:
             ifobj = resolve(item['markif'])
-            mark(new,ifobj)
-        except:
-            pass                
+            mark(new, ifobj)
+        except BaseException:
+            pass
     if item.get('default-page', False):
         new.setDefaultPage(item['default-page'])
     if item.get('allowed_types', False):
@@ -350,7 +354,7 @@ def _create_content(item, container):
     for subitem in item.get('children', []):
         _create_content(subitem, new)
 
-    
+
 def _constrain(context, allowed_types):
     behavior = ISelectableConstrainTypes(context)
     behavior.setConstrainTypesMode(constrains.ENABLED)
@@ -358,7 +362,8 @@ def _constrain(context, allowed_types):
     behavior.setImmediatelyAddableTypes(allowed_types)
 
 
-article = {"id":'example','title':u'测试文档','content':u'<p>这是一个测试文档</p>'}
+article = {"id": 'example', 'title': u'测试文档', 'content': u'<p>这是一个测试文档</p>'}
+
 
 def _create_article(article, container):
     id = str(article['id'])
@@ -369,19 +374,22 @@ def _create_article(article, container):
             type='Document',
             container=container,
             title=article['title'],
-            text = RichTextValue(article['content']),            
+            text=RichTextValue(article['content']),
             id=id,
-            safe_id=False)          
-        new.reindexObject()         
+            safe_id=False)
+        new.reindexObject()
 
-def import_article(portal):    
-    "migrate articles to document" 
 
-    containers = list(item['id'] for item in STRUCTURE if item['id'] not in ["sqls","help"])
+def import_article(portal):
+    "migrate articles to document"
+
+    containers = list(
+        item['id'] for item in STRUCTURE if item['id'] not in [
+            "sqls", "help"])
 
     for con in containers:
-        container =  portal[con]                                 
+        container = portal[con]
         try:
-            _create_article(article,container)
-        except:
-            continue 
+            _create_article(article, container)
+        except BaseException:
+            continue

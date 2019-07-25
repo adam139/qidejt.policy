@@ -8,10 +8,11 @@ class IThemeSpecific(Interface):
     """Marker interface that defines a ZTK browser layer. We can reference
     this in the 'layer' attribute of ZCML <browser:* /> directives to ensure
     the relevant registration only takes effect when this theme is installed.
-    
+
     The browser layer is installed via the browserlayer.xml GenericSetup
     import step.
     """
+
 
 class IDropdownConfiguration(Interface):
     """This interface defines the configlet for dropdown menus."""
@@ -66,10 +67,12 @@ class IDropdownMenuViewlet(Interface):
 
     def getTabObject(tabUrl=''):
         """Get the submenu tree for tab object"""
-        
-#set some mark interfaces for main nav folder container
+
+# set some mark interfaces for main nav folder container
+
+
 class IProjectContainer(Interface):
     """
     This is really just a marker interface.
     mark the folder as project container.
-    """           
+    """

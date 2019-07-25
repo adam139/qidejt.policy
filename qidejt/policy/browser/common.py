@@ -50,6 +50,7 @@ class SearchBoxViewlet(ViewletBase):
         out = "ajaxUrl:%s/@@ajax-search;minimumInputLength:2" % navroot
         return out
 
+
 class PathBarViewlet(ViewletBase):
     index = ViewPageTemplateFile('templates/path_bar.pt')
 

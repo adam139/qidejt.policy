@@ -31,7 +31,9 @@ class NavTree(object):
 
         strategy = getMultiAdapter((context, self), INavtreeStrategy)
 
-        return buildFolderTree(context, obj=context, query=query, strategy=strategy)
+        return buildFolderTree(context, obj=context,
+                               query=query, strategy=strategy)
+
 
 class Macros(BrowserView):
 
@@ -45,12 +47,11 @@ class Macros(BrowserView):
         context = aq_inner(self.context)
         navtree_view = NavTree(context, self.request)
         return [{
-            'id':t['id'],
+            'id': t['id'],
             'name':t['Title'],
             'url':t['getURL'],
             'description':t['Description']
         } for t in navtree_view.navigationTree()['children']]
-
 
     def text_to_html(self, text):
         text = text or ''
@@ -59,10 +60,10 @@ class Macros(BrowserView):
 
     def timedelta(self, start, end):
         if isinstance(start, DateTime):
-            start=start.asdatetime()
+            start = start.asdatetime()
         if isinstance(end, DateTime):
-            end=end.asdatetime()
-        return start-end
+            end = end.asdatetime()
+        return start - end
 
     def person_inline_css(self, person):
 
@@ -74,7 +75,8 @@ class Macros(BrowserView):
         """ % getattr(person, 'color', 'cccccc')[:6]
 
         return result
-    
+
+
 class DbMacros(BrowserView):
 
     template = ViewPageTemplateFile('templates/db_macros.pt')
@@ -87,12 +89,11 @@ class DbMacros(BrowserView):
         context = aq_inner(self.context)
         navtree_view = NavTree(context, self.request)
         return [{
-            'id':t['id'],
+            'id': t['id'],
             'name':t['Title'],
             'url':t['getURL'],
             'description':t['Description']
         } for t in navtree_view.navigationTree()['children']]
-
 
     def text_to_html(self, text):
         text = text or ''
@@ -101,7 +102,7 @@ class DbMacros(BrowserView):
 
     def timedelta(self, start, end):
         if isinstance(start, DateTime):
-            start=start.asdatetime()
+            start = start.asdatetime()
         if isinstance(end, DateTime):
-            end=end.asdatetime()
-        return start-end    
+            end = end.asdatetime()
+        return start - end

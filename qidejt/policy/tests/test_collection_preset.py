@@ -1,4 +1,4 @@
-#-*- coding: UTF-8 -*-
+# -*- coding: UTF-8 -*-
 from hashlib import sha1 as sha
 from plone.app.testing import login
 from plone.app.testing import setRoles
@@ -24,19 +24,22 @@ def getFile(filename):
     filename = os.path.join(os.path.dirname(__file__), filename)
     return open(filename, 'r')
 
+
 class TestView(unittest.TestCase):
-    
+
     layer = FunctionalTesting
+
     def setUp(self):
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
 
         for item in STRUCTURE:
-            _create_content(item, portal)         
+            _create_content(item, portal)
+
     def test_sort_on(self):
-# check collection sort_on,sort_reversed etc.        
+        # check collection sort_on,sort_reversed etc.
 
         portal = self.layer['portal']
-        item = portal['sqls']['qidexinwen']  
+        item = portal['sqls']['qidexinwen']
         self.assertTrue(item.sort_on == "created")
-        self.assertTrue(item.sort_reversed == True)      
+        self.assertTrue(item.sort_reversed == True)
