@@ -8,8 +8,8 @@ from Products.CMFPlone.resources import add_bundle_on_request
 from Products.CMFPlone.resources import add_resource_on_request
 from Products.CMFPlone.utils import getSiteEncoding
 from Products.CMFPlone.utils import safe_unicode
-from xtcs.policy import _
-from xtcs.policy.browser.interfaces import IThemeSpecific
+from qidejt.policy import _
+from qidejt.policy.browser.interfaces import IThemeSpecific
 from zope.component import getMultiAdapter
 
 import cgi
